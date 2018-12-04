@@ -1,0 +1,60 @@
+<!--
+  Generated template for the InformationsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{configProvider.appName || "About"}}</ion-title>
+    <ion-buttons end>
+      <login *ngIf='iotizeProvider.currentUser'></login>
+      <!-- *ngIf="ioTizeProvider && !!ioTizeProvider.currentUser" -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-item-divider color="light">
+    </ion-item-divider>
+    <ion-item>
+      <div class="item-title">
+          What does the app do?
+      </div>
+      <div text-wrap>
+        This app is a cordova-ionic based sample demo. It allows monitoring a Tap through a BLE connection.
+        It displays a dynamic UI based on the Tap's published configuration
+      </div>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="light">
+    </ion-item-divider>
+    <ion-item>
+        <div class="item-title">Tap</div>
+        <div class="inline-flex">
+          <!-- <div class="flex-div">SN:</div> -->
+          <div class="flex-div right-align">{{iotizeProvider.SN}}</div>
+        </div>
+      </ion-item>
+      <!-- <ion-item>
+        <div class="inline-flex">
+          <div class="flex-div">HostProtocol:</div>
+          <div class="flex-div right-align">{{iotizeProvider.currentHostProtocol}}</div>
+        </div>
+      </ion-item> -->
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item-divider color="light">
+        
+      </ion-item-divider>
+      <ion-item>
+        <div class="item-title">Current User Profile</div>
+      <div class="inline-flex">
+        <!-- <div class="flex-div">Name:</div> -->
+        <div class="flex-div right-align">{{iotizeProvider.currentUser}}</div>
+      </div>
+    </ion-item>
+  </ion-item-group>
+</ion-content>

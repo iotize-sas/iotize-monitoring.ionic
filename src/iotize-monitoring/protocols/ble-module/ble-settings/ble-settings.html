@@ -1,0 +1,40 @@
+<!-- <ion-item>
+  <button ion-button color="light" *ngIf="!bleComProvider.isScanning" full (click)="startScan()">Start Scan</button>
+  <button ion-button color="light" *ngIf="bleComProvider.isScanning" full (click)="stopScan()">Stop Scan</button>
+</ion-item>
+<ion-item *ngFor="let device of devices">
+  <div *ngIf="bleComProvider.selectedDevice != device.address; then connectBlock; else disconnectBlock">this is ignored</div>
+  <ng-template #connectBlock>
+    <button ion-item full color="light" (click)="connect(device);">
+      <ion-icon name="jet" item-left></ion-icon>
+      {{device.name}} 
+    </button>
+  </ng-template>
+  <ng-template #disconnectBlock>
+    <button ion-item (click)="disconnect(device)" color="primary">
+      <ion-icon name="jet" item-left></ion-icon>
+      {{device.name}}
+      <ion-icon name="checkmark-circle" item-right></ion-icon>
+    </button>
+  </ng-template>
+</ion-item> -->
+<div>  
+  <button ion-button *ngIf="!isScanning" color="primary" (click)="startScan()" full>BLE Scan</button>
+  <button ion-button *ngIf="isScanning" color="primary" (click)="stopScan()" full>Stop Scan</button>
+  <ion-list>
+    <ng-container *ngFor="let device of devices">
+      <div *ngIf="device.address != bleComProvider.selectedDevice; then connectBlock; else disconnectBlock">this is ignored</div>
+      <ng-template #connectBlock>
+        <ion-item button color="light" (click)="connect(device);" class="hover">
+          {{device.name}}
+        </ion-item>
+      </ng-template>
+      <ng-template #disconnectBlock>
+        <ion-item color="primary" (click)="disconnect(device);" class="hover">
+          {{device.name}}
+          <ion-icon name="checkmark-circle" item-right></ion-icon>
+        </ion-item>
+      </ng-template>
+    </ng-container>
+  </ion-list>
+</div>

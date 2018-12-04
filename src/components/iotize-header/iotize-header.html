@@ -1,0 +1,13 @@
+<ion-navbar color="primary">
+  <ion-title>{{configProvider.appName || "IoTize"}}</ion-title>
+  <ion-buttons end>
+    <login *ngIf="!!ioTizeProvider.currentUser"></login>
+  </ion-buttons>
+</ion-navbar>
+<ion-segment *ngIf="bundleLinksOn && configProvider && configProvider.bundles" [(ngModel)]="selectedBundleId">
+  <ng-container *ngFor="let bundle of configProvider.bundles">
+    <ion-segment-button *ngIf="bundle.isVisibleTo(ioTizeProvider.currentUser)" [value]="bundle.id" (ionSelect)="moveToBundle(bundle.id)">
+      {{bundle.name}}
+    </ion-segment-button>
+  </ng-container>
+</ion-segment>

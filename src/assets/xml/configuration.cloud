@@ -1,0 +1,38 @@
+﻿<?xml version="1.0"?>
+<IOTizeConfiguration Version="1.2.0" Lock="8">
+<GUI_Environment />
+<IOTizeApp Name="Sensor demo" DevIoTizeSN="IoTzPr00410000111A" InterfaceLock="8" Scram_Hash_It="5000" Path="$2/user.cloud.iotize.com/examples/Sensor_demo/index.html" TargetProtocol="SWD" TargetProtocolConfDataLen="8" TargetProtocolConfData="0001000a01002580" HostProtocol="ALL" Firmware="1.0.0" Config="1.0.0" NFCPairingMandatory="No" LowPowerLevel="0" LowPowerHostTimeout="30">
+<USB_Aliases />
+<WIFI_Info Network="P2P" ModuleWEPKey="ABCD1234" ModuleSSID="IoTize" />
+<CloudServices CloudEnable="Yes" CloudSendConf="Yes" CloudMqttPeriod="60000">
+<CloudHostName Name="user.cloud.iotize.com" />
+<CloudServiceName Name="1883" />
+<CloudMQTT_UID Name="IoTzPr00410000111A_6E9DEDA5" />
+</CloudServices>
+</IOTizeApp>
+<IOTizeBundle Id="0" GUI_Name="Count_Status" GUI_Description="" DataLogPeriod="0x0000003C">
+<IOTizeVariable Id="4" GUI_Name="Count" Address="0x20000000" Unit="3" Quantity="1" GUI_Submit="No" GUI_Display="Yes" />
+<IOTizeVariable Id="7" GUI_Name="LEDStatus" Address="0x20000008" Unit="1" Quantity="1" GUI_Submit="No" GUI_Display="Yes" GUI_unsigned="1" />
+<IOTizeAccessControl>
+<IOTizeACL ProfileName="anonymous" Rights="read" />
+</IOTizeAccessControl>
+</IOTizeBundle>
+<IOTizeBundle Id="1" GUI_Name="Sensors" GUI_Description="" DataLogPeriod="0x0000003D">
+<IOTizeVariable Id="2" GUI_Name="Temperature_C" Address="0x20000018" Unit="3" Quantity="1" GUI_Submit="No" GUI_Display="Yes" GUI_Alias="Temp" GUI_DispUnit="C" GUI_float="1" />
+<IOTizeVariable Id="1" GUI_Name="Voltage_V" Address="0x2000001C" Unit="3" Quantity="1" GUI_Submit="No" GUI_Display="Yes" GUI_Alias="Vcc" GUI_DispUnit="V" GUI_float="1" />
+<IOTizeVariable Id="3" GUI_Name="Temperature_mC_sl" Address="0x20000038" Unit="3" Quantity="1" GUI_Submit="No" GUI_Display="Yes" />
+<IOTizeVariable Id="6" GUI_Name="TemperatureShort_dC" Address="0x20000030" Unit="2" Quantity="1" GUI_Submit="No" GUI_Display="Yes" />
+<IOTizeAccessControl>
+<IOTizeACL ProfileName="anonymous" Rights="read" />
+<IOTizeACL ProfileName="admin" Rights="read,write" />
+</IOTizeAccessControl>
+</IOTizeBundle>
+<IOTizeBundle Id="2" GUI_Name="Count_Control" GUI_Description="" DataLogPeriod="0x00000000">
+<IOTizeVariable Id="0" GUI_Name="Period" Address="0x2000000C" Unit="3" Quantity="1" GUI_Submit="Yes" GUI_Display="Yes" />
+<IOTizeVariable Id="13" GUI_Name="LEDConfig" Address="0x20000009" Unit="1" Quantity="1" GUI_Submit="Yes" GUI_Display="Yes" GUI_unsigned="1" />
+<IOTizeAccessControl>
+<IOTizeACL ProfileName="anonymous" Rights="read" />
+<IOTizeACL ProfileName="tech" Rights="read,write" />
+</IOTizeAccessControl>
+</IOTizeBundle>
+</IOTizeConfiguration>

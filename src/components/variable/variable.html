@@ -1,0 +1,17 @@
+<!-- Generated template for the VariableComponent component -->
+<ion-item class="no-left-padding">
+  <div class="inline-flex">
+    <div class="td-label">
+            <div class="left-align variable_name">{{variable.name}} </div>
+    </div>
+    <div class="td-value">
+        <div class="right-align">
+            <span class="variable_value" id="{{variable.name}}">{{variable.value | number:'1.0-3'}}</span>
+            <span class="variable_unit">{{variable.unit}}</span>
+            <button *ngIf="canUpdate && variable.updatable" ion-button icon-only (click)="showPrompt()">
+              <ion-icon name="build"></ion-icon>
+            </button>
+        </div>
+      </div>
+  </div>
+</ion-item>

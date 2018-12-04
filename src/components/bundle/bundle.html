@@ -1,0 +1,8 @@
+<!-- Generated template for the BundleComponent component -->
+<!-- <ion-title>
+  {{bundle.name}}
+</ion-title> -->
+<ion-list>
+  <variable *ngFor="let variable of bundle.variables" [variable]="variable"
+  [canUpdate]="canUpdate"></variable>
+</ion-list>

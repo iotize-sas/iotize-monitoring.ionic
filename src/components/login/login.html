@@ -1,0 +1,11 @@
+<!-- Generated template for the LoginComponent component -->
+<button ion-button color="primary" class="no-box-shadow"
+  *ngIf="ioTizeProvider.currentUser == 'anonymous'"
+  (click)="loginPrompt()" icon-only>
+  <ion-icon name="log-in"></ion-icon>
+</button>
+<button ion-button color="primary" class="no-box-shadow"
+  *ngIf="ioTizeProvider.currentUser != 'anonymous'"
+  (click)="logout();" icon-only>
+  <ion-icon name="log-out"></ion-icon>
+</button>

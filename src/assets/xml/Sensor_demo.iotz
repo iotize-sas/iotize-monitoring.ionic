@@ -1,0 +1,60 @@
+﻿<?xml version="1.0"?>
+<IOTizeConfiguration Version="1.2.0" Lock="8">
+<GUI_Environment Locked="false" Autoincrement="false" DocVerboseLevel="3" DocLogVerboseLevel="3" DocLogFileName="" AdminPWD="admin" SmartPhoneStoragePath="" />
+<IOTizeApp Name="Sensor demo" DevIoTizeSN="IoTzPr00410000111A" InterfaceLock="8" Scram_Hash_It="5000" GUI_Path="$2/user.cloud.iotize.com/examples/Sensor_demo/index.html" GUI_WebSpePath="user.cloud.iotize.com/examples/Sensor_demo/index.html" Path="$2/user.cloud.iotize.com/examples/Sensor_demo/index.html" GUI_TargetType="0" TargetProtocol="SWD" GUI_S3Pmode="0" TargetProtocolConfDataLen="8" TargetProtocolConfData="0001000a01002580" HostProtocol="ALL" Firmware="1.0.0" Config="1.0.0" NFCPairingMandatory="No" LowPowerLevel="0" LowPowerHostTimeout="30">
+<USB_Aliases />
+<WIFI_Info Network="P2P" ModuleWEPKey="ABCD1234" ModuleSSID="IoTize" />
+<GUI_Reader Name="" />
+<GUI_ConnectionMode Value="2" />
+<GUI_CryptoMode Value="0" />
+<GUI_DevMQTTHostName Name="user.cloud.iotize.com" />
+<GUI_DevMQTTServiceName Name="1883" />
+<GUI_DevMQTT_UID Name="IoTzPr00410000111A_6E9DEDA5" />
+<GUI_DevSocketHostName Name="192.168.20.120" />
+<GUI_DevSocketServiceName Name="2000" />
+<GUI_DevBLEDeviceName Name="" />
+<GUI_DevNetkey Name="testnetkey" />
+<GUI_ElfFile PathName=".\Sensor_tem\out\STM32_Sensor.elf" Description="" />
+<GUI_SVDFile PathName="..\..\SVD\STM32\STM32F102xx.svd" />
+<GUI_HTML Generate="yes" Prefix="HTML_Sensor" Home="index.html" />
+<GUI_CSSAuto Auto="yes" />
+<GUI_CSSFile PathName="" />
+<GUI_htmlHideLogin Hide="no" />
+<GUI_htmlDigitsFloat Value="3" />
+<CloudServices CloudEnable="Yes" CloudSendConf="Yes" CloudMqttPeriod="60000">
+<CloudHostName Name="user.cloud.iotize.com" />
+<CloudServiceName Name="1883" />
+<CloudMQTT_UID Name="IoTzPr00410000111A_6E9DEDA5" />
+</CloudServices>
+</IOTizeApp>
+<IOTizeProfile GroupId="0" Id="0" Name="anonymous" LifeTime="300" Pwd="" GUI_Description="Guest without login/password. This profile is predefined in IoTize." GUI_BackColor="2759434" GUI_HTMLHome="" />
+<IOTizeProfile GroupId="65535" Id="65535" Name="admin" LifeTime="30" Pwd="0155AFFC023AFF6882F56A4E0D9C5466" GUI_Description="Default administrator login. This profile is predefined in IoTize, with password admin" GUI_BackColor="3750667" GUI_HTMLHome="" />
+<IOTizeProfile GroupId="65534" Id="65534" Name="supervisor" LifeTime="3000" Pwd="99C243D5F82EB712C281D5FFE7D12097" GUI_Description="The supervisor is allowed to modify the login/password of the users, with password supervisor" GUI_BackColor="3026478" GUI_HTMLHome="" />
+<IOTizeProfile GroupId="1" Id="1" Name="tech" LifeTime="300" Pwd="F3F5EFEEE89D2181DAAFAC0B363B9343" GUI_Description="" GUI_BackColor="15790320" GUI_HTMLHome="">
+<IOTizeUser GroupId="2" Id="2" Name="user" Pwd="0AE319E890E13D3EB4085F8AA88927FC" GUI_Description="" />
+<IOTizeUser GroupId="3" Id="3" Name="Paul" Pwd="A2F11651F981F7FD486CB255C2794895" GUI_Description="" />
+</IOTizeProfile>
+<IOTizeBundle Id="0" GUI_Name="Count_Status" GUI_Description="" DataLogPeriod="0x0000003C">
+<IOTizeVariable Id="4" GUI_Name="Count" GUI_PhysicalAddress="0x20000000" Address="0x20000000" Unit="3" Quantity="1" GUI_Submit="No" GUI_Display="Yes" />
+<IOTizeVariable Id="7" GUI_Name="LEDStatus" GUI_PhysicalAddress="0x20000008" Address="0x20000008" Unit="1" Quantity="1" GUI_Submit="No" GUI_Display="Yes" GUI_unsigned="1" />
+<IOTizeAccessControl>
+<IOTizeACL ProfileName="anonymous" Rights="read" />
+</IOTizeAccessControl>
+</IOTizeBundle>
+<IOTizeBundle Id="1" GUI_Name="Sensors" GUI_Description="" DataLogPeriod="0x0000003D">
+<IOTizeVariable Id="2" GUI_Name="Temperature_C" GUI_PhysicalAddress="0x20000018" Address="0x20000018" Unit="3" Quantity="1" GUI_Submit="No" GUI_Display="Yes" GUI_Alias="Temp" GUI_DispUnit="C" GUI_float="1" />
+<IOTizeVariable Id="1" GUI_Name="Voltage_V" GUI_PhysicalAddress="0x2000001C" Address="0x2000001C" Unit="3" Quantity="1" GUI_Submit="No" GUI_Display="Yes" GUI_Alias="Vcc" GUI_DispUnit="V" GUI_float="1" />
+<IOTizeAccessControl>
+<IOTizeACL ProfileName="anonymous" Rights="read" />
+<IOTizeACL ProfileName="admin" Rights="read,write" />
+</IOTizeAccessControl>
+</IOTizeBundle>
+<IOTizeBundle Id="2" GUI_Name="Count_Control" GUI_Description="" DataLogPeriod="0x00000000">
+<IOTizeVariable Id="0" GUI_Name="Period" GUI_PhysicalAddress="0x2000000C" Address="0x2000000C" Unit="3" Quantity="1" GUI_Submit="Yes" GUI_Display="Yes" />
+<IOTizeVariable Id="13" GUI_Name="LEDConfig" GUI_PhysicalAddress="0x20000009" Address="0x20000009" Unit="1" Quantity="1" GUI_Submit="Yes" GUI_Display="Yes" GUI_unsigned="1" />
+<IOTizeAccessControl>
+<IOTizeACL ProfileName="anonymous" Rights="read" />
+<IOTizeACL ProfileName="tech" Rights="read,write" />
+</IOTizeAccessControl>
+</IOTizeBundle>
+</IOTizeConfiguration>
