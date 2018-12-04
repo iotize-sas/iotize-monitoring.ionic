@@ -19,6 +19,7 @@ Plug in your Tap device. Then build and run the app.
 ```bash
 git clone https://github.com/iotize-sas/monitoring.ionic.git
 cd monitoring.ionic
+npm i
 ionic cordova run <platform> # replace <platform> by ios, android or windows
 ```
 
