@@ -17,7 +17,7 @@ Your computer needs to be set up for Android, iOS or Windows UWP Cordova develop
 Plug in your Tap device. Then build and run the app.
 
 ```bash
-git clone https://github.com/iotize-sas/monitoring.ionic.git
+git clone https://github.com/iotize-sas/iotize-monitoring.ionic.git
 cd monitoring.ionic
 npm i
 ionic cordova run <platform> # replace <platform> by ios, android or windows
@@ -27,17 +27,21 @@ Upon connection, the app downloads the '.cloud' configuration file to display a 
  
 ### Navigation
 
-Once started, the app loads on the connect page. Click the BLE start button to scan surroundings BLE devices.
+Once started, the app loads on the connect page. Click the BLE start button to scan surroundings IoTize BLE devices.
 
 The app then shows a list of reachable devices. Click on the one you want to connect to.
 
-Once the device connected, you may now access to the monitor page.
+Once the device connected, you may now access to the monitor page, and the application name changes to fit the one set in tap.
 
 The monitor page is built with the configuration file the app downloaded. It has a navigation bar on top of the screen, where you can select the bundle you wish to monitor by clicking on its name.
+
+Bundles are only visible to users allowed in the configuration file and logged in the app.
 
 If you are logged in with an account that has writing rights on a bundle, a **wrench icon** appears next to every concerned variable. By clicking on it, a form asks you for the value you want to set the variable to.
 
 On the about page, you can see informations about the currently connected tap.
+
+To end the communcation with the tap, just disconnect it by clicking on its name in the connect page.
 
 ### Settings and Authentification
 
@@ -46,3 +50,7 @@ On the Connect page, you can see, at the upper right hand corner of the app, a *
 On the Monitor and About page, when connected to a tap, you can see a **log-in icon** at the same place. When clicked, it opens a form where you can enter your credentials to login to the tap.
 
 You can logout by clicking the **logout icon**.
+
+## Glossary
+
+**Bundle**: Set of variables configured in the tap. Each bundle has access rights (read/write) which can be given to user profiles.
