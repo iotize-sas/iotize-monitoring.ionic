@@ -17,7 +17,7 @@ export class BleSettingsComponent implements OnInit, OnDestroy {
 
   private devicesSubscription:Subscription;
   protected isScanning = false;
-  private loading: Loading = null;
+  public loading: Loading = null;
 
   devices: Array<DiscoveredDeviceType> = [];
 
@@ -87,7 +87,6 @@ export class BleSettingsComponent implements OnInit, OnDestroy {
     } catch (exception) {
       console.error(exception);
     }
-
   }
 
   private subscribeEvents() {

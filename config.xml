@@ -88,6 +88,7 @@
     <plugin name="cordova-plugin-add-swift-support" spec="^1.7.2" />
     <plugin name="cordova-plugin-advanced-http" spec="^2.0.1" />
     <plugin name="cordova-plugin-iotize-ble" spec="@iotize/cordova-plugin-iotize-ble@~1.1.0-alpha.16" />
+    <plugin name="phonegap-nfc" spec="1.0.3" />
     <engine name="ios" spec="4.5.5" />
     <engine name="windows" spec="5.0.0" />
     <engine name="android" spec="7.1.4" />

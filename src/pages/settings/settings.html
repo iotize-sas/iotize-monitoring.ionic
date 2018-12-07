@@ -16,7 +16,7 @@
 </ion-header>
 
 <ion-content padding>
-    <ble-settings *ngIf="protocolName == 'BLE'"></ble-settings>
+    <ble-settings *ngIf="protocolName == 'BLE'" #bleSettings></ble-settings>
   </ion-content>
 <!-- <ion-footer>
   <button ion-button full color="dark" (click)="configProvider.getConfig('assets/xml/Sensor_demo.iotz')">Mock Config</button>

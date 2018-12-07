@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, ToastController, AlertController, Events } from 'ionic-angular';
 import { ConfigProvider } from '../../iotize-monitoring/globals/config/config';
 import { IoTizeProvider } from '../../iotize-monitoring/globals/io-tize/io-tize';
-import { HttpHeaders } from '@angular/common/http';
+import { NfcProvider } from '../../iotize-monitoring/globals/nfc/nfc';
+import { BleSettingsComponent } from '../../iotize-monitoring/protocols/ble-module/ble-settings/ble-settings';
 
 /**
  * Generated class for the SettingsPage page.
@@ -17,14 +18,18 @@ import { HttpHeaders } from '@angular/common/http';
   templateUrl: 'settings.html',
 })
 export class SettingsPage {
+  @ViewChild('bleSettings') bleComponent: BleSettingsComponent;
+
   protocolName: string = "BLE"; //default value
 
   constructor(protected configProvider: ConfigProvider,
               private iotizeProvider: IoTizeProvider,
               public toastCtrl: ToastController,
               public alertCtrl: AlertController,
-              public events: Events) {
+              public events: Events,
+              public nfc: NfcProvider) {
                 this.subscribeToComEvents();
+                this.subscribeToNFCEvents();
   }
 
   subscribeToComEvents(){
@@ -83,6 +88,17 @@ export class SettingsPage {
       ]
     });
     prompt.present();
+  }
+
+  subscribeToNFCEvents() {
+    this.nfc.tagFound.subscribe(tap => {
+      if (this.bleComponent.devices.find(device => device.name == tap.name) === undefined) {
+        this.bleComponent.devices.push(tap);
+      }
+      if (this.bleComponent.bleComProvider.selectedDevice === '' || this.bleComponent.loading == null) {
+        this.bleComponent.connect(tap);
+      }
+    });
   }
 
   // mockConfig() {

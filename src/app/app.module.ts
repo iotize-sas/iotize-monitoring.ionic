@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -23,6 +23,8 @@ import { IotizeBleModule } from '../iotize-monitoring/protocols/ble-module/iotiz
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { HTTP } from '@ionic-native/http';
+import { NFC } from '@ionic-native/nfc';
+import { NfcProvider } from '../iotize-monitoring/globals/nfc/nfc';
 
 registerLocaleData(localeFr);
 
@@ -60,9 +62,11 @@ registerLocaleData(localeFr);
     StatusBar,
     SplashScreen,
     HTTP,
+    NFC,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     IoTizeProvider,
-    ConfigProvider
+    ConfigProvider,
+    NfcProvider
   ]
 })
 export class AppModule {}
